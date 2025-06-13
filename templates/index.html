@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Mind-Soothe | Your Space to Reflect</title>
+    <meta name="description" data-i18n="description" content="An AI companion for mental well-being. A safe space to explore your thoughts and feelings, with gentle guidance and support.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+    <div style="display: none;">
+        <div id="thinking-animation-template">
+            <svg class="thinking-svg" viewBox="0 0 100 20">
+                <path class="thinking-path" d="M 0 10 C 20 20, 40 0, 60 10 C 80 20, 100 0, 120 10" stroke-width="3" fill="none" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="background-gradient"></div>
+
+    <header class="main-header">
+        <div class="logo">
+            <i data-feather="message-square"></i> <span>Mind-Soothe</span>
+        </div>
+        <div class="language-select">
+            <i data-feather="globe"></i>
+            <select id="language-selector" aria-label="Select language">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-headline">
+                    <span data-i18n="headline1">A quiet place</span>
+                    <span data-i18n="headline2">for your thoughts.</span>
+                </h1>
+                <p class="hero-subheadline" data-i18n="subheadline">An empathetic AI assistant designed to listen, support, and help you navigate your feelings. Start a conversation whenever you need.</p>
+                <button class="cta-button" id="start-chat-button">
+                    <span data-i18n="cta_button">Begin Session</span>
+                    <i data-feather="arrow-right"></i>
+                </button>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse-icon"></div>
+            </div>
+        </section>
+
+        <section class="chat-section" id="chat-section">
+            <div class="chat-container" id="chat-container">
+                <div class="chat-messages" id="chat-messages" role="log" aria-live="polite">
+                    </div>
+                <div class="chat-input-area">
+                    <div class="suggestion-chips">
+                         <button class="suggestion-chip" data-i18n="chip_anxiety" data-query="Coping with anxiety">Coping with anxiety</button>
+                         <button class="suggestion-chip" data-i18n="chip_stress" data-query="Managing stress">Managing stress</button>
+                         <button class="suggestion-chip" data-i18n="chip_mindfulness" data-query="What is mindfulness?">What is mindfulness?</button>
+                    </div>
+                    <div class="chat-input-wrapper">
+                        <textarea id="user-input" data-i18n-placeholder="placeholder_input" placeholder="How are you feeling today?" rows="1"></textarea>
+                        <button id="send-button" aria-label="Send message">
+                            <i data-feather="arrow-up"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
